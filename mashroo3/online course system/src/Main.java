@@ -1,10 +1,32 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.awt.Toolkit;
 public class Main {
     static ArrayList<Object> InstructorsArray = new ArrayList<>();
     static ArrayList<Object> StudentsArray = new ArrayList<>();
     static ArrayList<Object> CoursesArray = new ArrayList<>();
+    
+    public static int getInt() {
+    	int x=0 ; 
+    	boolean flag = true ; 
+    	do {
+    		try {
+
+    			Scanner scan = new Scanner(System.in) ; 
+    			x=scan.nextInt(); 
+    			flag = false ; 
+    		
+    	} 
+    	catch (InputMismatchException e) 
+    		{
+    		System.out.println("Please re-enter positive integer number") ; 
+    		}
+    		} 
+    	while (flag) ;
+    	return x ; 
+    	
+    	}
 
     public static void main(String[] args) {
 
@@ -46,17 +68,17 @@ public class Main {
         System.out.println("Are you STUDENT / INSTRUCTOR ?\n" + "---------------------------------\n" + "for INSTRUCTOR enter 0\n" + "for STUDENT enter 1\n");
         Toolkit.getDefaultToolkit().beep();
         Scanner in = new Scanner(System.in);
-        int x = in.nextInt();
+        Boolean x = in.nextBoolean();
 
         //check if Student\Instructor
-        if (x == 1) {
+        if (x == true ) {
 
             System.out.println("hello student");
             System.out.println("-----------------------------");
             System.out.println("Are you new student or current student\n" + "---------------------------------\n" + "for CURRENT student enter 0\n" + "for NEW student enter 1\n");
             System.out.println("-----------------------------");
             Toolkit.getDefaultToolkit().beep();
-            int xx = in.nextInt();
+            int xx = getInt();
 
             if (xx == 0) {
 
@@ -92,7 +114,7 @@ public class Main {
                 String std_name = in4.nextLine();
                 System.out.println("enter your age \n");
                 Toolkit.getDefaultToolkit().beep();
-                int std_age = in4.nextInt();
+                int std_age = getInt();
                 System.out.println("enter your mail \n");
                 Toolkit.getDefaultToolkit().beep();
                 in4.nextLine();
@@ -110,13 +132,13 @@ public class Main {
             //check if current\new instructor
         }
         /////////////////////////////////////////////////////////
-        else if (x == 0) {
+        else if (x == false) {
             System.out.println("hello instructor");
             System.out.println("-----------------------------");
             System.out.println("Are you new instructor or current instructor\n" + "---------------------------------\n" + "for CURRENT INSTRUCTOR enter 0\n" + "for NEW INSTRUCTOR enter 1\n");
             System.out.println("-----------------------------");
             Toolkit.getDefaultToolkit().beep();
-            int x1 = in.nextInt();
+            int x1 = getInt();
 
             if (x1 == 0) {
 
@@ -136,8 +158,8 @@ public class Main {
                         System.out.println("0 For Quizzez\n" + "1 For Practice\n" + "2 For show rating");
                         System.out.println("----------------------------");
                         Toolkit.getDefaultToolkit().beep();
-                        Scanner in2 = new Scanner(System.in);
-                        int x2 = in2.nextInt();
+                      //  Scanner in2 = new Scanner(System.in);
+                        int x2 = getInt();
                         //////////////////////////////////////////////////////////////////////////
                         if (x2 == 0) {
                             //quizzes operations
@@ -146,8 +168,8 @@ public class Main {
                             System.out.println("0 For get quiz questions\n" + "1 For set quiz questions\n " + "2 For get quiz model answer\n" + "3 For set quiz model answer\n");
                             System.out.println("----------------------------");
                             Toolkit.getDefaultToolkit().beep();
-                            Scanner in3 = new Scanner(System.in);
-                            int x3 = in3.nextInt();
+                           // Scanner in3 = new Scanner(System.in);
+                            int x3 = getInt();
                             if (x3 == 0) {
                                 System.out.println("there is the quiz questions");
                                 System.out.println("----------------------------");
@@ -181,8 +203,8 @@ public class Main {
                             System.out.println("0 For get practice questions\n" + "1 For set practice questions\n " + "2 For get practice model answer\n" + "3 For set practice model answer\n");
                             System.out.println("----------------------------");
                             Toolkit.getDefaultToolkit().beep();
-                            Scanner in3 = new Scanner(System.in);
-                            int x3 = in3.nextInt();
+                           // Scanner in3 = new Scanner(System.in);
+                            int x3 = getInt();
                             if (x3 == 0) {
                                 System.out.println("there is the practice questions");
                                 System.out.println("----------------------------");
@@ -238,7 +260,7 @@ public class Main {
                 String ins_name = in4.nextLine();
                 System.out.println("enter your age \n");
                 Toolkit.getDefaultToolkit().beep();
-                int ins_age = in4.nextInt();
+                int ins_age = getInt();
                 System.out.println("enter your mail \n");
                 Toolkit.getDefaultToolkit().beep();
                 in4.nextLine();
@@ -255,10 +277,10 @@ public class Main {
 
                 System.out.println("enter your course hours \n");
                 Toolkit.getDefaultToolkit().beep();
-                int course_hours = in4.nextInt();
+                int course_hours = getInt();
                 System.out.println("enter your course code \n");
                 Toolkit.getDefaultToolkit().beep();
-                int course_code = in4.nextInt();
+                int course_code = getInt();
                 System.out.println("enter your course content \n");
                 Toolkit.getDefaultToolkit().beep();
                 in4.nextLine();
