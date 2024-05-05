@@ -27,6 +27,26 @@ public class Main {
     	return x ; 
     	
     	}
+    public static boolean getBool() {
+		boolean x= false ; 
+		boolean flag = true ; 
+		do {
+			try {
+
+				Scanner scan = new Scanner(System.in) ; 
+				x=scan.nextBoolean() ;  
+				flag = false ; 
+			
+		} 
+		catch (InputMismatchException e) 
+			{
+			System.out.println("Please re-enter positive true or false") ; 
+			}
+			} 
+		while (flag) ;
+		return x ; 
+		
+		}
 
     public static void main(String[] args) {
 
@@ -65,22 +85,23 @@ public class Main {
         //main function
         System.out.println("Hello to NINJA online courses application");
         System.out.println("-------------------------------------------");
-        System.out.println("Are you STUDENT / INSTRUCTOR ?\n" + "---------------------------------\n" + "for INSTRUCTOR enter 0\n" + "for STUDENT enter 1\n");
+       // System.out.println("Are you STUDENT / INSTRUCTOR ?\n" + "---------------------------------\n" + "for INSTRUCTOR enter 0\n" + "for STUDENT enter 1\n");
+        System.out.println("Are you STUDENT ?\n" + "---------------------------------\n" + "for INSTRUCTOR enter false\n" + "for STUDENT enter true\n");   
         Toolkit.getDefaultToolkit().beep();
-        Scanner in = new Scanner(System.in);
-        Boolean x = in.nextBoolean();
+        //Scanner in = new Scanner(System.in);
+        Boolean x = getBool();
 
         //check if Student\Instructor
         if (x == true ) {
 
             System.out.println("hello student");
             System.out.println("-----------------------------");
-            System.out.println("Are you new student or current student\n" + "---------------------------------\n" + "for CURRENT student enter 0\n" + "for NEW student enter 1\n");
+            System.out.println("Are you new student or current student\n" + "---------------------------------\n" + "for CURRENT student enter false \n" + "for NEW student enter true\n");
             System.out.println("-----------------------------");
             Toolkit.getDefaultToolkit().beep();
-            int xx = getInt();
+            boolean xx = getBool();
 
-            if (xx == 0) {
+            if (xx == false ) {
 
                 //get info about student / do some operations
                 System.out.println("Enter your name");
@@ -104,7 +125,7 @@ public class Main {
 
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
-            else if (xx == 1) {
+            else if (xx == true) {
 
                 //set info about student
                 Scanner in4 = new Scanner(System.in);
@@ -138,9 +159,9 @@ public class Main {
             System.out.println("Are you new instructor or current instructor\n" + "---------------------------------\n" + "for CURRENT INSTRUCTOR enter 0\n" + "for NEW INSTRUCTOR enter 1\n");
             System.out.println("-----------------------------");
             Toolkit.getDefaultToolkit().beep();
-            int x1 = getInt();
+            boolean x1 = getBool();
 
-            if (x1 == 0) {
+            if (x1 == false) {
 
                 //get info about instructor / do some operations
                 System.out.println("Enter your name");
@@ -250,7 +271,7 @@ public class Main {
 
             }
             ///////////////////////////////////////////////////////////
-            else if (x1 == 1) {
+            else if (x1 == true) {
                 Scanner in4 = new Scanner(System.in);
                 Instructor newinstructor = new Instructor();
 
