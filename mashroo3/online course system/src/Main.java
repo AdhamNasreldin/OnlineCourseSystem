@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,12 +16,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.Toolkit;
+
 public class Main extends Application {
 	
 
-    static ArrayList<Object> InstructorsArray = new ArrayList<>();
-    static ArrayList<Object> StudentsArray = new ArrayList<>();
-    static ArrayList<Object> CoursesArray = new ArrayList<>();
+    
     
 	 @Override // Override the start method in the Application class
 	  public void start(Stage primaryStage) {
@@ -58,7 +56,6 @@ public class Main extends Application {
 		// Scene SceneOne = new Scene(Userdefi,200,200);
 		 primaryStage.setScene(SceneOne);
 		 primaryStage.show();
-		 primaryStage.hide();
 		 Pane pane2 = new Pane() ; 
 		 Scene scene2 = new Scene(pane2, 200 ,200 ) ; 
 		 
@@ -131,41 +128,7 @@ public class Main extends Application {
 	    //public static void main(String[] args) {
 	  
 
-	        // initialize array of object contains current instructors
-	        Instructor instructor1 = new Instructor("english", "ahmed", "male", "mail", 55);
-	        Instructor instructor2 = new Instructor("arabic", "ibrahim", "male", "mail", 30);
-	        Instructor instructor3 = new Instructor("math", "ali", "male", "mail", 40) ; 
-	        
-	        
-	     /*   InstructorsArray.add(instructor1);
-	        InstructorsArray.add(instructor2);
-	        InstructorsArray.add(instructor3); */
-
-	        // initialize array of object contains current Students
-	        Student s1 = new Student("ahmed", "male", "ahmed@gmail.com", 20);
-	        Student s2 = new Student("kareem", "male", "ahmed@gmail.com", 20);
-	        Student s3 = new Student("adham", "male", "ahmed@gmail.com", 20);
-	      /*  StudentsArray.add(s1);
-	        StudentsArray.add(s2);
-	        StudentsArray.add(s3);
-	        s1.setRating(9);
-	        s2.setRating(8);
-	        s3.setRating(10); */
-
-	        // initialize array of object contains current Courses
-	        Courses c1 = new Courses("english", 10, 100, "12 lectures");
-	        Courses c2 = new Courses("arabic", 12, 101, "10 lectures");
-	        Courses c3 = new Courses("math", 13, 102, "15 lectures");
-	    //       CoursesArray.add(c2);
-//	        CoursesArray.add(c3);
-//	        CoursesArray.add(c1);
-
-	        //Arraylists
-	        ArrayList<String> modelAnswer = new ArrayList<>();
-	        ArrayList<String> questionList = new ArrayList<>();
-
-
-    
+	       
 
 }
 
