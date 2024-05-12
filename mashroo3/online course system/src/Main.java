@@ -12,6 +12,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -22,6 +23,7 @@ import javafx.stage.Stage;
 import java.awt.Toolkit;
 
 public class Main extends Application {
+	User current ;
 	
 	  public static int getInt() {
 	    	int x=0 ; 
@@ -88,13 +90,14 @@ public class Main extends Application {
 		 teacher.setLayoutX(115);
 		 teacher.setLayoutY(125);
 		 teacher.layoutXProperty().bind(SceneOne.widthProperty().divide(2));;
-		 Button Student = new Button ("Student") ; 
+		 Button Studen = new Button ("Student") ; 
 		
-		 Student.setLayoutX(25);
-		 Student.setLayoutY(125); 
-		 Student.layoutXProperty().bind(SceneOne.widthProperty().divide(2).subtract(70)) ;
-		 Userdefi.getChildren().addAll(teacher, Student) ;
+		 Studen.setLayoutX(25);
+		 Studen.setLayoutY(125); 
+		 Studen.layoutXProperty().bind(SceneOne.widthProperty().divide(2).subtract(70)) ;
+		 Userdefi.getChildren().addAll(teacher, Studen) ;
 		 primaryStage.setScene(SceneOne);
+		 primaryStage.setTitle("User type");
 		 primaryStage.show() ; 
 		 
 		
@@ -102,6 +105,12 @@ public class Main extends Application {
 		 
 		 	GridPane pane1 = new  GridPane()  ;
 			pane1.setVgap(10);
+			pane1.setHgap(10);
+			// Assume 'gridPane' is the GridPane you want to set the border width for
+			// Set the border width using CSS
+			pane1.setStyle("-fx-border-width: 2px; -fx-border-color: black;");
+			// by copilot
+
 			// pane1.setOpaqueInsets(10,5,6,4);
 			TextField email = new TextField();
 			Label lbemail = new Label("  E-mail :   ",email);
@@ -121,7 +130,7 @@ public class Main extends Application {
 			pane1.add(noacc, 2, 3);
 					
 			Scene sceneTwo = new Scene (pane1, 350,200);
-			
+			//sceneTwo.
 			
 			
 			
@@ -133,12 +142,13 @@ public class Main extends Application {
 				public void handle(ActionEvent e) {
 				      System.out.println("user is student");
 				      userType = true ;
+				      current = new Student(); 
 				      primaryStage.setScene(sceneTwo) ;     
 				      
 				      }
 			 }
 			 StudHandlerClass han1 = new StudHandlerClass()	 ; 
-			 Student.setOnAction(han1 ) ; 
+			 Studen.setOnAction(han1 ) ; 
 			 
 			 
 		//// handling pressing the instructor button 
@@ -149,6 +159,7 @@ public class Main extends Application {
 				public void handle(ActionEvent e) {
 				      System.out.println("I'm a teacher");
 				      userType = false ;
+				      current = new Instructor (); 
 				      primaryStage.setScene(sceneTwo) ;  
 				      
 				    }
@@ -161,18 +172,19 @@ public class Main extends Application {
 			class LoginHandle  implements EventHandler<ActionEvent> {
 				@Override 
 				public void handle (ActionEvent e) {
-					if (userType==true) { // user is student 
+					if (current instanceof Student) { // user is student 
 						 //get info about student / do some operations
 						System.out.println("Ehna bnhandle el login status");
 				          String instName = email.getText() ;
 				          System.out.println("da esm el user ana a5adto" +  email.getText()+database.StudentsArray.size());
-				          int i ; 
-				          for (i = 0 ; i < database.StudentsArray.size() ; i++) {
+				          int i ;
+				          try {
+				          for (i = 0 ; i <= database.StudentsArray.size()-1 ; i++) {
 				              Student std = (Student) database.StudentsArray.get(i);
 				              System.out.println("ana bdwr 3l user") ;
 				              if (std.getName().equals(instName)) {
 				                  std.PrintInfo();
-				                  Student currentStudent = (Student) database.StudentsArray.get(i);
+				                   current = (Student) database.StudentsArray.get(i);
 				                  Label auser = new Label ("Congrats you are logged in") ;
 				                  pane1.add(auser, 1, 4);				                 
 				              }
@@ -182,7 +194,11 @@ public class Main extends Application {
 				                  pane1.add(notuser, 1, 4);
 				                 // notuser.setFont(Color.RED)    
 				              }
+				          }}catch(IndexOutOfBoundsException k) {
+				        	  Label notuser = new Label ("You are not a current user") ;
+			                  pane1.add(notuser, 1, 4);
 				          }
+				          
 						} 
 					else 
 						{
@@ -195,7 +211,7 @@ public class Main extends Application {
 				              System.out.println("ana bdwr 3l user") ;
 				              if (std.getName().equals(instName)) {
 				                  std.PrintInfo();
-				                  Student currentStudent = (Student) database.InstructorsArray.get(i);
+				                  current = (Instructor) database.InstructorsArray.get(i);
 				                  Label auser = new Label ("Congrats you are logged in") ;
 				                  pane1.add(auser, 1, 4);
 				                  System.out.println("what operation do you prefer to do :");
@@ -218,6 +234,32 @@ public class Main extends Application {
 			LoginHandle Han3 = new LoginHandle() ;
 			lgin.setOnAction(Han3);
 			
+			class newaccHan  implements EventHandler<ActionEvent> {
+				@Override 
+				public void handle (ActionEvent e) {
+					//lgin.setText(STYLESHEET_MODENA);
+					pane1.getChildren().remove(lgin);
+					pane1.getChildren().remove(noacc);
+					pane1.add(lgin,3, 5);
+					lgin.setText("Sign up");
+					TextField age = new  TextField() ;
+					Label lbage = new Label(" age  ",age) ; 
+					lbage.setContentDisplay(ContentDisplay.RIGHT);	
+
+					lbage.setAlignment(null);
+					pane1.add(lbage,1 , 3);
+					pane1.add(age,3 , 2);
+					
+					
+					
+					
+				}
+				
+			
+			}
+			newaccHan Han4 = new newaccHan();
+			noacc.setOnAction(Han4);
 			
 			
-	 }}
+	 }//closing the start methid implementation
+	 }

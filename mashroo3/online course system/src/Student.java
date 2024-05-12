@@ -10,18 +10,21 @@ public class Student extends User {
     public Student() {
         this.ID += getCounter() ;
         incrementCounter ();
+        super.setType(true);
     }
 
     public Student (String name) { // constructor sare3
         super(name)  ;
         this.ID += getCounter() ;
         incrementCounter ();
+        super.setType(true);
     }
 
     public Student (String name, String Gender, String mail,int age) { // constructor main
         super(name,Gender,mail,age);
         this.ID += getCounter() ;
         incrementCounter ();
+        super.setType(true);
     }
 
     public int getID() {

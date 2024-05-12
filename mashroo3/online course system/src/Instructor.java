@@ -9,10 +9,12 @@ public class Instructor extends User  {
     public Instructor() { //default const.
         incrementCounter();
         this.course=getCourse();
+        super.setType(false);
     }
 
     public Instructor (String name) { // constructor sare3
         super(name)  ;
+        super.setType(false);
         incrementCounter ();
     }
 
@@ -20,6 +22,7 @@ public class Instructor extends User  {
         super(name,gender,mail,age);
         this.course=course;
         incrementCounter ();
+        super.setType(false);
     }
 
 

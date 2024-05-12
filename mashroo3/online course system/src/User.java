@@ -7,6 +7,7 @@ public abstract class User {
     private int age ;
     private int rating ;
     private float grade ;
+    private boolean type ; // true if student false if instructor 
 
     public User() { // constructor default
     }
@@ -25,7 +26,15 @@ public abstract class User {
     }
 
 
-    public static int getCounter() {
+    public boolean getType() {
+		return type;
+	}
+
+	public void setType(boolean type) {
+		this.type = type;
+	}
+
+	public static int getCounter() {
 
         return Counter ;
     }
