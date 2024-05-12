@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Student extends User {
 
-    private  int ID =1000 ;						// This function doesn't have a setter as you can't change your ID
+    private  int ID =1000 ;		// This function doesn't have a setter as you can't change your ID
     private  ArrayList <Courses> CoursesEnrolled ; //
 
 
@@ -66,10 +66,12 @@ public class Student extends User {
     public int getQuizzResult(){
         return quizzes.getResult();
     }
+    
     public ArrayList<String> getQuizzQuestionlist() {
         quizzes.getQuestionlist();
         return quizzes.getQuestionlist();
     }
+    
     public void setQuizzRecievedAnswer(ArrayList<String> recievedAnswer) {
         quizzes.setRecievedAnswer(recievedAnswer);
     }
