@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Courses  {
+public class Courses  implements Comparable <Courses> {
     private String name;
     private int courseHours  ;
     private int code  ;
@@ -119,4 +119,24 @@ public class Courses  {
     public void setPracticeResult(int result) {
         practice.setResult(result);
     }
+
+	
+    public static int Max(int length, int length2) {
+		if (length>length2)
+		return length;
+		else return length2 ; 
+	}
+    @Override
+	public int compareTo(Courses o) {
+		for (int i=0 ; i< Max(o.getName().length(),this.getName().length());i++) {
+			if (this.getName().charAt(i) > o.getName().charAt(i)) 
+			{
+				return 1 ;
+			}
+			else if (this.getName().charAt(i) < o.getName().charAt(i)) {return -1;}
+		//	else if (i == Max(o.getName().length(),super.getName().length())-1 ) return 0;
+		}
+		// TODO Auto-generated method stu
+		return 0;
+	}
 }

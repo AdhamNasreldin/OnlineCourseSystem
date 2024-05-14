@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class database {
@@ -30,7 +32,8 @@ public class database {
     InstructorsArray.add(instructor1) ;
     InstructorsArray.add(instructor2);
     InstructorsArray.add(instructor3); 
-
+    
+   // Collections.sort((List<T>) InstructorsArray);
 
 
     s1.setRating(9) ;
@@ -42,13 +45,19 @@ public class database {
     StudentsArray.add(s3);
     
     // initialize array of object contains current Courses
-    Courses c1 = new Courses("english", 10, 100, "12 lectures");
-    Courses c2 = new Courses("arabic", 12, 101, "10 lectures");
-    Courses c3 = new Courses("math", 13, 102, "15 lectures");
+    Courses c1 = new Courses("English", 10, 100, "12 lectures");
+    Courses c2 = new Courses("Arabic", 12, 101, "10 lectures");
+    Courses c3 = new Courses("Math", 13, 102, "15 lectures");
+    Courses c4 = new Courses("Electronics",10,55,"8 Lectures") ; 
+    Courses c5 = new Courses("Programming",9,85,"11 Lectures") ; 
+    
     
    CoursesArray.add(c2);
    CoursesArray.add(c3);
    CoursesArray.add(c1);
+   CoursesArray.add(c4);
+   CoursesArray.add(c5);
+   
 
 
     }
