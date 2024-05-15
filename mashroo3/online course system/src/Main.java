@@ -1,11 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 //Authors Kareem,Adham and Ahmed
 /////////////////////////////////////////////////////////////////////
-// main without gui
+
 // main with gui at the end of the file
 
 // please uncomment the block that you want to run
 
+// this block is main without gui
 /*
 import java.util.ArrayList;
 import java.util.Scanner;
